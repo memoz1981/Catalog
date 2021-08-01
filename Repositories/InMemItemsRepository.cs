@@ -5,7 +5,7 @@ using Catalog.Entities;
 
 namespace Catalog.Repositories
 {
-    public class InMemItemsRepository
+    public class InMemItemsRepository : IItemsRepository
     {
         private readonly List<Item> items = new()
         {
@@ -16,13 +16,12 @@ namespace Catalog.Repositories
 
         public IEnumerable<Item> Get()
         {
-            return items; 
+            return items;
         }
 
         public Item GetItems(Guid id)
         {
-            return items.FirstOrDefault(m=>m.Id==id);
+            return items.FirstOrDefault(m => m.Id == id);
         }
-
     }
 }
